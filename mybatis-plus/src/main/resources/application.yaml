@@ -1,0 +1,27 @@
+spring:
+  # datasource 数据源配置内容
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis-test?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+
+
+# mybatis-plus 配置内容
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      id-type: auto  # ID 主键自增
+      logic-delete-value: 1  # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0  # 逻辑未删除值(默认为 0)
+  mapper-locations: classpath:mapper/*.xml  # 配置 Mapper XML 地址
+  type-aliases-package: com.springboot.entity  # 配置数据库实体包路径
+
+logging:
+  level:
+    com:
+      springboot:
+        mapper: debug
+
